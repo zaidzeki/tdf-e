@@ -8,10 +8,10 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python 3.12
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
@@ -23,14 +23,14 @@ jobs:
 
       - name: Compile with Nuitka (CPU Stable MinGW64)
         run: |
-          python -m nuitka --standalone --windows-console-mode=disable --mingw64 run.py
+          python -m nuitka --standalone --windows-console-mode=disable --mingw64 --output-dir=build --output-filename=app --include-data-dir=templates=templates run.py
 
       - name: Compile Setup Installer (Using Inno Setup)
         run: |
           iscc installer_config.iss
 
       - name: Upload Finished Installer to GitHub
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: TDF-Encrypt-Installer
           path: installer_output/TDF-Encrypt.exe

@@ -20,9 +20,8 @@ Name: "{group}\TDF-Encrypt"; Filename: "{app}\app.exe"
 Name: "{autodesktop}\TDF-Encrypt"; Filename: "{app}\app.exe"; Tasks: desktopicon
 
 [Registry]
-Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\App Paths\mediacompressor.exe"; ValueType: string; ValueName: ""; ValueData: "{app}\app.exe"; Flags: uninsdeletekey
-Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\App Paths\mediacompressor.exe"; ValueType: string; ValueName: "Path"; ValueData: "{app}"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\App Paths\app.exe"; ValueType: string; ValueName: ""; ValueData: "{app}\app.exe"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\App Paths\app.exe"; ValueType: string; ValueName: "Path"; ValueData: "{app}"; Flags: uninsdeletekey
 Root: HKCU; Subkey: "Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}"; Flags: preservestringtype
-
 [Run]
 Filename: "{app}\app.exe"; Description: "TDF-Encrypt"; Flags: nowait postinstall skipifsilent
