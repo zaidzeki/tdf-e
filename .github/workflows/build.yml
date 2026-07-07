@@ -23,7 +23,7 @@ jobs:
 
       - name: Compile with Nuitka (CPU Stable MinGW64)
         run: |
-          python -m nuitka --standalone --windows-console-mode=disable --mingw64 --output-dir=build --output-filename=app --include-data-dir=templates=templates run.py
+          python -m nuitka --standalone --windows-console-mode=disable --mingw64 --assume-yes-for-downloads --output-dir=build --output-filename=app --include-data-dir=templates=templates run.py
 
       - name: Compile Setup Installer (Using Inno Setup)
         run: |
